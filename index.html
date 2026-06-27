@@ -404,8 +404,8 @@ const SHOP_CONFIG = {
   secondaryColor:  "#F48FB1",
   headerBgColor:   "#C2185B",
   adminPassword:   "duean2026",
-  backendApiUrl: "https://script.google.com/macros/s/AKfycbzIiqfvFlsEbg0BvJKC6vsYJLKB4kMfc0xwX2BiqN0yYyv9eZBMLHRZlpcAAJOiyP9X8Q/exec",
-  orderApiUrl:   "https://script.google.com/macros/s/AKfycbxReFPJtHNu-vZt8WyH-rlp_GZKGmhzgNIUo-6_1Aext8Cal3_WO_JKABjgOg7Kh7IsHQ/exec",
+  backendApiUrl:   "https://script.google.com/macros/s/AKfycbzIiqfvFlsEbg0BvJKC6vsYJLKB4kMfc0xwX2BiqN0yYyv9eZBMLHRZlpcAAJOiyP9X8Q/exec",
+  orderApiUrl:     "https://script.google.com/macros/s/AKfycbyyJf7DoeU0iKn6Pkh8f7hcW5XAmwF2Mi5dquxf_nE8p4cTzWFMny280cA32qXQ4-huBA/exec",
   qrPaymentUrl:    "https://lh3.googleusercontent.com/d/13wVnnJWEI7SXH5pz9o7fIReUowYEzp2v",
   social: {
     facebook: { url:"https://www.facebook.com/dueansavanh.pms", name:"Duean Shopp" },
@@ -616,8 +616,11 @@ async function loadProds(retry){
     // Timeout 15 seconds
     const controller=new AbortController();
     const timeout=setTimeout(()=>controller.abort(),15000);
-    const res=await fetch(SHOP_CONFIG.orderApiUrl+"?action=getProducts",{
-      method:"GET",redirect:"follow",signal:controller.signal
+    const res=await fetch(SHOP_CONFIG.orderApiUrl,{
+      method:"POST",redirect:"follow",
+      headers:{"Content-Type":"text/plain"},
+      body:JSON.stringify({action:"getProducts"}),
+      signal:controller.signal
     });
     clearTimeout(timeout);
     const text=await res.text();
@@ -891,7 +894,7 @@ async function checkStatus(){
   if(btn){btn.disabled=true;btn.innerHTML='<span class="mini-spin" style="border-top-color:white;border-color:rgba(255,255,255,.3)"></span>ກຳລັງກວດ...';}
   el.innerHTML='<div class="empty-state">⏳ ກຳລັງດຶງຂໍ້ມູນ...</div>';
   try{
-    const res=await fetch(SHOP_CONFIG.orderApiUrl+"?action=getOrderStatus&code="+encodeURIComponent(code),{method:"GET",redirect:"follow"});
+    const res=await fetch(SHOP_CONFIG.orderApiUrl,{method:"POST",redirect:"follow",headers:{"Content-Type":"text/plain"},body:JSON.stringify({action:"getOrderStatus",code:code})});
     const json=JSON.parse(await res.text());
     renderStatus(json);
   }catch(e){el.innerHTML=`<div class="empty-state">❌ ${e.message}</div>`;}
