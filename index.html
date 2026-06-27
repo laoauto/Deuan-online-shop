@@ -329,6 +329,63 @@ input,select,textarea{font-family:inherit;}
 
 <script>
 // ══════════════════════════════════════
+// INLINE FALLBACK CONFIG (ກັນ SHOP_CONFIG.js ໂຫຼດບໍ່ທັນ)
+// ══════════════════════════════════════
+if(typeof SHOP_CONFIG==="undefined"){
+  window.SHOP_CONFIG={
+    shopName:"ຮ້ານ Duean Shopp",
+    shopSlogan:"ສິນຄ້າຄຸນນະພາບດີ · ລາຄາຖືກ · ສົ່ງທົ່ວລາວ",
+    logoUrl:"https://drive.google.com/thumbnail?id=1zsXqtgvgVZgK7oT9pNjhc1gG3Kv8fGb1&sz=w200",
+    primaryColor:"#C2185B",
+    primaryColorRgb:"194,24,91",
+    secondaryColor:"#F48FB1",
+    headerBgColor:"#C2185B",
+    adminPassword:"duean2026",
+    backendApiUrl:"https://script.google.com/macros/s/AKfycbyh55Wvrq6NpPO7pUMv6TcOvugH49td0gTzBIN3tHvYApQiuVWdH5v7IxWw1JKXZRQVIg/exec",
+    orderApiUrl:"https://script.google.com/macros/s/AKfycbyF6oKLKj7WBiEcrqQI_cNN0y35KKLZj6aXECpTItBVzLUUwy1QEUldRnyj7Wngae2ZMA/exec",
+    qrPaymentUrl:"https://drive.google.com/thumbnail?id=13wVnnJWEI7SXH5pz9o7fIReUowYEzp2v&sz=w600",
+    social:{
+      facebook:{url:"https://www.facebook.com/dueansavanh.pms",name:"Duean Shopp"},
+      whatsapp:{url:"https://api.whatsapp.com/send/?phone=856202029992584",name:"020 2029992584"}
+    },
+    shippingOptions:[
+      {value:"ອານຸສິດ",label:"✈️ ອານຸສິດ",suspended:false},
+      {value:"ຮຸ່ງອາລຸນ",label:"🚌 ຮຸ່ງອາລຸນ",suspended:false},
+      {value:"ຢູ່ນິເທວ",label:"🚚 ຢູ່ນິເທວ",suspended:false},
+      {value:"ມີໄຊ",label:"🏍️ ມີໄຊ",suspended:false}
+    ],
+    paymentOptions:[
+      {value:"ໂອນຈ່າຍ",icon:"💳",label:"ໂອນຈ່າຍ",desc:"ສະແກນ QR / ໂອນ",requireSlip:true},
+      {value:"COD",icon:"💵",label:"COD (ຈ່າຍປາຍທາງ)",desc:"ສຳລັບ ອານຸສິດ",requireSlip:false}
+    ],
+    marqueeItems:["✅ ສິນຄ້າຕົງປົກ 100%","🚚 ສົ່ງທຸກແຂວງ ທົ່ວລາວ","💳 ຮັບໂອນ BCEL One","📱 ສອບຖາມ WhatsApp ໄດ້ຕະຫຼອດ","🎁 ຮ້ານ Duean Shopp ຍິນດີໃຫ້ບໍລິການ"],
+    districts:{
+      "ວຽງຈັນ (ນະຄອນຫຼວງ)":["ຈັນທະບູລີ","ໄຊເສດຖາ","ສີໂຄດຕະບອງ","ສີສັດຕະນາກ","ຫາດຊາຍຟອງ","ນາຊາຍທອງ","ໄຊທານີ","ສັງທອງ","ປາກງື່ມ"],
+      "ວຽງຈັນ (ແຂວງ)":["ໂພນໂຮງ","ທຸລະຄົມ","ກາສີ","ວັງວຽງ","ຫີນເຫີບ","ແກ້ວອຸດົມ","ວຽງຄຳ"],
+      "ບໍລິຄຳໄຊ":["ປາກກະດິງ","ທ່າພະບາດ","ປາກຊັນ","ບໍລິຄັນ","ໄຊຈຳພອນ"],
+      "ຄຳມ່ວນ":["ທ່າແຂກ","ມະຫາໄຊ","ໜອງບົກ","ຫິນບູນ"],
+      "ສະຫວັນນະເຂດ":["ໄກສອນ ພົມວິຫານ","ອຸທຸມພອນ","ພິນ","ເຊໂປນ","ທ່າປາງທອງ","ສອງຄອນ"],
+      "ສາລະວັນ":["ສາລະວັນ","ລະຄອນເພັງ","ວາປີ","ເລົ່າງາມ"],
+      "ຈຳປາສັກ":["ປາກເຊ","ຊະນາສົມບູນ","ປາກຊ່ອງ","ໂພນທອງ","ຈຳປາສັກ","ສຸຂຸມາ","ໂຂງ"],
+      "ຫຼວງພະບາງ":["ຫຼວງພະບາງ","ຊຽງເງິນ","ນານ","ປາກອູ","ງອຍ"],
+      "ຫຼວງນໍ້າທາ":["ຫຼວງນໍ້າທາ","ສິງ","ລອງ","ວຽງພູຄາ"],
+      "ອຸດົມໄຊ":["ໄຊ","ຫລາ","ນາໝໍ້","ງາ","ແບງ","ຮຸນ"],
+      "ບໍ່ແກ້ວ":["ຫ້ວຍຊາຍ","ຕົ້ນເຜິ້ງ","ເມິງ","ຜາອຸດົມ"],
+      "ຜົ້ງສາລີ":["ບຸນໃຕ້","ຜົ້ງສາລີ","ຍອດອູ"],
+      "ຫົວພັນ":["ຊຳເໜືອ","ຊຽງຄໍ້","ຮ້ວມ","ວຽງໄຊ"],
+      "ໄຊຍະບູລີ":["ໄຊຍະບູລີ","ບໍ່ແຕນ","ຫົງສາ","ແກ່ນທ້າວ","ເງິນ"],
+      "ຊຽງຂວາງ":["ແປກ (ໂພນສະຫວັນ)","ຄຳ","ໜອງແຮດ","ຄູນ"],
+      "ອັດຕະປື":["ໄຊເສດຖາ","ສາມັກຄີໄຊ","ສະໜາມໄຊ","ຊານໄຊ"],
+      "ເຊກອງ":["ທ່າແຕງ","ລະມາມ","ກະລຸມ"],
+      "ໄຊສົມບູນ":["ລ້ອງແຈ້ງ","ທ່າໂທມ","ອະນຸວົງ"]
+    },
+    defaultGridCols:2,fontSize:14,borderRadius:14,
+    timezone:"Asia/Vientiane",countryPrefix:"85620"
+  };
+  console.warn("⚠️ SHOP_CONFIG.js ໂຫຼດໄວ້ backup config");
+}
+
+// ══════════════════════════════════════
 // STATE
 // ══════════════════════════════════════
 let allProds=[],cart={},slipBase64="",viewerProds=[],viewerIdx=0;
