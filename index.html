@@ -305,11 +305,76 @@ input,select,textarea{font-family:inherit;}
 
 <!-- SUCCESS SCREEN -->
 <div class="success-screen" id="success-screen">
-  <div class="success-icon">🎉</div>
-  <div style="font-size:18px;font-weight:bold;color:var(--primary)">ສ່ງຄຳສັ່ງສຳເລັດ!</div>
-  <div class="success-code" id="success-code"></div>
-  <div style="font-size:13px;color:var(--text-sub);margin:10px 0 20px">ບັນທຶກລະຫັດນີ້ໄວ້<br>ກວດສະຖານະໄດ້ທີ່ tab "ກວດສະຖານະ"</div>
-  <button onclick="resetOrder()" style="background:var(--primary);color:#fff;border:none;padding:12px 28px;border-radius:20px;font-size:14px;font-weight:bold;cursor:pointer">🛒 ສັ່ງຊື້ຕໍ່</button>
+  <div style="max-width:480px;margin:0 auto">
+    <!-- Header -->
+    <div style="font-size:56px;margin-bottom:8px">🎉</div>
+    <div style="font-size:20px;font-weight:900;color:var(--primary);margin-bottom:4px">ສ່ງຄຳສັ່ງສຳເລັດ!</div>
+    <div style="font-size:12px;color:var(--text-sub);margin-bottom:16px">ກະລຸນາ Screenshot ບິນນີ້ເກັບໄວ້!</div>
+
+    <!-- Bill Card -->
+    <div id="bill-card" style="background:#fff;border:2px solid var(--primary);border-radius:16px;padding:18px 16px;text-align:left;box-shadow:0 4px 20px rgba(var(--primary-rgb),.15)">
+      <!-- Bill Header -->
+      <div style="text-align:center;border-bottom:2px dashed rgba(var(--primary-rgb),.2);padding-bottom:12px;margin-bottom:12px">
+        <img src="https://drive.google.com/thumbnail?id=1zsXqtgvgVZgK7oT9pNjhc1gG3Kv8fGb1&sz=w80" style="width:52px;height:52px;border-radius:50%;border:2px solid var(--primary);object-fit:cover;margin-bottom:6px" onerror="this.style.display='none'">
+        <div style="font-weight:900;font-size:16px;color:var(--primary)">ຮ້ານ Duean Shopp</div>
+        <div style="font-size:11px;color:var(--text-sub)">ໃບບິນສັ່ງຊື້</div>
+      </div>
+      <!-- Order Code -->
+      <div style="text-align:center;background:rgba(var(--primary-rgb),.06);border-radius:10px;padding:10px;margin-bottom:14px">
+        <div style="font-size:11px;color:var(--text-sub)">ລະຫັດ Order</div>
+        <div class="success-code" id="success-code" style="font-size:22px;font-weight:900;color:var(--primary);letter-spacing:2px"></div>
+        <div id="bill-time" style="font-size:11px;color:var(--text-sub);margin-top:3px"></div>
+      </div>
+      <!-- Customer Info -->
+      <div id="bill-info" style="border-bottom:1px dashed rgba(var(--primary-rgb),.2);padding-bottom:12px;margin-bottom:12px;font-size:13px">
+      </div>
+      <!-- Items -->
+      <div id="bill-items" style="border-bottom:1px dashed rgba(var(--primary-rgb),.2);padding-bottom:12px;margin-bottom:12px">
+      </div>
+      <!-- Total -->
+      <div id="bill-total" style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+        <span style="font-size:14px;font-weight:bold">ລວມທັງໝົດ:</span>
+        <span id="bill-total-amt" style="font-size:20px;font-weight:900;color:var(--primary)"></span>
+      </div>
+      <!-- Warning Box -->
+      <div style="background:linear-gradient(135deg,#fff3cd,#fff8e1);border:1.5px solid #ffc107;border-radius:10px;padding:12px 14px;margin-bottom:14px">
+        <div style="font-size:13px;font-weight:bold;color:#856404;margin-bottom:6px">⚠️ ກະລຸນາອ່ານ!</div>
+        <div style="font-size:12px;color:#856404;line-height:1.8">
+          📸 <b>Screenshot ຫຼື Download</b> ບິນນີ້ເກັບໄວ້<br>
+          ⏰ ຖ້າ <b>1-2 ມື້</b> ອໍເດີ້ຍັງບໍ່ມີ Update<br>
+          📞 <b>ຕິດຕໍ່ແມ່ຄ້າດ່ວນ!</b> ອາດເກີດ Order ຕົກ
+        </div>
+      </div>
+      <!-- Contact -->
+      <div style="display:flex;gap:8px">
+        <a id="bill-wa-link" href="#" target="_blank"
+          style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:#25d366;color:#fff;border-radius:10px;padding:10px;font-size:13px;font-weight:bold;text-decoration:none">
+          💬 WhatsApp
+        </a>
+        <a href="https://www.facebook.com/dueansavanh.pms" target="_blank"
+          style="flex:1;display:flex;align-items:center;justify-content:center;gap:6px;background:#1877f2;color:#fff;border-radius:10px;padding:10px;font-size:13px;font-weight:bold;text-decoration:none">
+          📘 Facebook
+        </a>
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div style="display:flex;gap:8px;margin-top:14px">
+      <button onclick="downloadBill()" style="flex:1;background:var(--primary);color:#fff;border:none;padding:13px;border-radius:12px;font-size:14px;font-weight:bold;cursor:pointer">
+        📸 Screenshot ບິນ
+      </button>
+      <button onclick="resetOrder()" style="flex:1;background:rgba(var(--primary-rgb),.08);color:var(--primary);border:2px solid var(--primary);padding:13px;border-radius:12px;font-size:14px;font-weight:bold;cursor:pointer">
+        🛒 ສັ່ງຊື້ຕໍ່
+      </button>
+    </div>
+
+    <!-- Check Status -->
+    <div style="margin-top:12px;text-align:center">
+      <button onclick="goCheckStatus()" style="background:none;border:none;color:var(--text-sub);font-size:12px;cursor:pointer;text-decoration:underline">
+        📦 ກວດສະຖານະ Order ຂອງຂ້ອຍ
+      </button>
+    </div>
+  </div>
 </div>
 
 <!-- IMAGE VIEWER -->
@@ -664,14 +729,75 @@ async function submitOrder(){
     const json=JSON.parse(await res.text());
     if(json.status==="error")throw new Error(json.message||"ຜິດພາດ");
     closeCheckout();
+    // Fill bill details
+    const finalCode=json.code||code;
+    const now2=new Date();
+    document.getElementById("success-code").textContent=finalCode;
+    document.getElementById("bill-time").textContent="🕐 "+now2.toLocaleDateString("lo-LA")+" "+now2.toLocaleTimeString("lo-LA",{hour:"2-digit",minute:"2-digit"});
+
+    // Customer info
+    document.getElementById("bill-info").innerHTML=[
+      ["👤 ຊື່",name],
+      ["📞 ເບີໂທ",phone],
+      ["📍 ທີ່ຢູ່",addr||"-"],
+      ["🚚 ຂົນສົ່ງ",shipping||"-"],
+      ["💳 ຊຳລະ",pay?pay.value:"-"],
+    ].map(([lbl,val])=>`<div style="display:flex;gap:8px;margin-bottom:5px"><span style="color:var(--text-sub);font-size:12px;min-width:80px;flex-shrink:0">${lbl}</span><span style="font-size:13px;font-weight:500">${val}</span></div>`).join("");
+
+    // Items
+    document.getElementById("bill-items").innerHTML=
+      `<div style="font-size:12px;font-weight:bold;color:var(--text-sub);margin-bottom:8px">🛍️ ລາຍການ</div>`+
+      items.map(i=>{
+        const sub=i.qty*(Number(i.price)||0);
+        return`<div style="display:flex;justify-content:space-between;align-items:center;padding:5px 0;border-bottom:1px solid rgba(0,0,0,.04)">
+          <div><div style="font-size:13px;font-weight:bold">${i.name}</div><div style="font-size:11px;color:var(--text-sub)">${fN(Number(i.price))} ₭ × ${i.qty}</div></div>
+          <div style="font-size:13px;font-weight:bold;color:var(--primary)">${fN(sub)} ₭</div>
+        </div>`;
+      }).join("");
+
+    document.getElementById("bill-total-amt").textContent=fN(total)+" ₭";
+
+    // WhatsApp link with order info
+    const waMsg=encodeURIComponent(`ສະບາຍດີ! ຂ້ອຍຫາກໍ່ສັ່ງຊື້ Order ${finalCode} ມູນຄ່າ ${fN(total)} ₭ ກະລຸນາກວດສອບດ້ວຍ 🙏`);
+    document.getElementById("bill-wa-link").href=`https://api.whatsapp.com/send/?phone=856202029992584&text=${waMsg}`;
+
     document.getElementById("tab-shop").style.display="none";
     document.getElementById("success-screen").classList.add("show");
-    document.getElementById("success-code").textContent=json.code||code;
+    window.scrollTo(0,0);
     cart={};slipBase64="";updateCartUI();
   }catch(e){errEl.textContent="❌ ສ່ງຜິດ: "+e.message;errEl.style.display="block";}
   finally{hideLoading();btn.disabled=false;btn.innerHTML="✅ ສ່ງຄຳສັ່ງຊື້";}
 }
-function resetOrder(){document.getElementById("success-screen").classList.remove("show");document.getElementById("tab-shop").style.display="";showTab("tab-shop",document.querySelector(".tab-btn"));filterProds();}
+function resetOrder(){
+  document.getElementById("success-screen").classList.remove("show");
+  document.getElementById("tab-shop").style.display="";
+  showTab("tab-shop",document.querySelector(".tab-btn"));
+  filterProds();
+}
+function goCheckStatus(){
+  const code=document.getElementById("success-code").textContent;
+  document.getElementById("success-screen").classList.remove("show");
+  document.getElementById("tab-shop").style.display="";
+  const tabs=document.querySelectorAll(".tab-btn");
+  showTab("tab-status",tabs[1]);
+  document.getElementById("status-code").value=code;
+  setTimeout(checkStatus,300);
+}
+function downloadBill(){
+  const el=document.getElementById("bill-card");
+  if(!el){alert("ກະລຸນາ Screenshot ດ້ວຍໂທລະສັບ");return;}
+  // Try html2canvas if available, otherwise guide user
+  if(typeof html2canvas!=="undefined"){
+    html2canvas(el,{scale:2,backgroundColor:"#fff",useCORS:true}).then(canvas=>{
+      const a=document.createElement("a");
+      a.download="DueanShopp_"+document.getElementById("success-code").textContent+".png";
+      a.href=canvas.toDataURL("image/png");
+      a.click();
+    });
+  } else {
+    alert("📸 ກະລຸນາ Screenshot ໜ້ານີ້ເກັບໄວ້\n\niOS: ກົດ Side+Volume\nAndroid: ກົດ Power+Volume Down");
+  }
+}
 
 // ══════════════════════════════════════
 // STATUS CHECK
