@@ -491,19 +491,53 @@ function applyShopConfig(){
 }
 
 function buildSocial(){
-  const svgs={
-    facebook:`<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>`,
-    whatsapp:`<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51A9.84 9.84 0 0 0 12.05 2C5.495 2 .16 7.335.157 13.892c0 2.096.547 4.142 1.588 5.945L.057 26l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>`,
+  // Official brand logos
+  const icons={
+    facebook:`<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/240px-Facebook_Logo_%282019%29.png" width="28" height="28" style="object-fit:contain">`,
+    whatsapp:`<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png" width="28" height="28" style="object-fit:contain">`,
+  };
+  const iconsSmall={
+    facebook:`<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/240px-Facebook_Logo_%282019%29.png" width="16" height="16" style="object-fit:contain">`,
+    whatsapp:`<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png" width="16" height="16" style="object-fit:contain">`,
   };
   const bgColors={facebook:"#1877f2",whatsapp:"#25d366"};
-  const names={facebook:"Facebook",whatsapp:"WhatsApp"};
+  const labels={facebook:"Facebook",whatsapp:"WhatsApp"};
+  const subLabels={facebook:"ຕິດຕາມໜ້າເພດ",whatsapp:"ສົນທະນາທັນທີ"};
   const s=SHOP_CONFIG.social||{};
   let h="",ch="";
   Object.keys(s).forEach(k=>{
     const item=s[k];if(!item||!item.url)return;
     const bg=bgColors[k]||"#C2185B";
-    h+=`<a href="${item.url}" target="_blank" class="social-btn" style="background:${bg}">${svgs[k]||"🔗"}<span style="margin-left:4px">${item.name||names[k]||k}</span></a>`;
-    ch+=`<a href="${item.url}" target="_blank" style="display:flex;align-items:center;gap:14px;padding:14px 0;border-bottom:1px solid var(--border);text-decoration:none;color:var(--text)"><div style="width:44px;height:44px;border-radius:50%;background:${bg};display:flex;align-items:center;justify-content:center;color:#fff;flex-shrink:0">${svgs[k]||"🔗"}</div><div><div style="font-weight:bold;font-size:14px">${names[k]||k}</div><div style="font-size:12px;color:var(--text-sub)">${item.name||""}</div></div><span style="margin-left:auto;color:var(--primary)">▶</span></a>`;
+    const lbl=labels[k]||k;
+    const sub=item.name||subLabels[k]||"";
+    // Header buttons
+    h+=`<a href="${item.url}" target="_blank" class="social-btn" style="background:${bg};padding:6px 14px;gap:6px">
+      ${iconsSmall[k]||"🔗"}
+      <span style="font-size:12px;font-weight:bold">${lbl}</span>
+    </a>`;
+    // Contact tab — card style ໃຫ່ຍ ສວຍ
+    ch+=`<a href="${item.url}" target="_blank"
+      style="display:flex;align-items:center;gap:16px;padding:16px;margin-bottom:10px;
+             background:var(--card-bg);border:2px solid ${bg}20;border-radius:16px;
+             text-decoration:none;color:var(--text);box-shadow:0 2px 10px ${bg}15;
+             transition:.2s;-webkit-tap-highlight-color:transparent"
+      onmouseenter="this.style.transform='scale(1.02)'" onmouseleave="this.style.transform=''"
+    >
+      <div style="width:56px;height:56px;border-radius:16px;
+                  background:${k==='facebook'?'#fff':bg};
+                  display:flex;align-items:center;justify-content:center;
+                  flex-shrink:0;box-shadow:0 4px 12px ${bg}30;
+                  border:${k==='facebook'?'2px solid #1877f220':'none'};padding:4px">
+        ${icons[k]||"🔗"}
+      </div>
+      <div style="flex:1">
+        <div style="font-weight:bold;font-size:16px;margin-bottom:2px">${lbl}</div>
+        <div style="font-size:13px;color:var(--text-sub)">${sub}</div>
+      </div>
+      <div style="width:36px;height:36px;border-radius:50%;background:${bg}15;
+                  display:flex;align-items:center;justify-content:center;
+                  color:${bg};font-size:16px;font-weight:bold">›</div>
+    </a>`;
   });
   document.getElementById("header-social").innerHTML=h;
   document.getElementById("contact-links-list").innerHTML=ch||'<div class="empty-state">ບໍ່ມີ</div>';
