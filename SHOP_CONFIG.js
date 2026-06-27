@@ -38,8 +38,8 @@ const SHOP_CONFIG = {
   qrPaymentUrl: "https://drive.google.com/thumbnail?id=13wVnnJWEI7SXH5pz9o7fIReUowYEzp2v&sz=w600",
 
   // ─── 5. API URLs (ໃສ່ຫຼັງ Deploy Google Apps Script) ──────────
-  backendApiUrl: "https://script.google.com/macros/s/AKfycbyh55Wvrq6NpPO7pUMv6TcOvugH49td0gTzBIN3tHvYApQiuVWdH5v7IxWw1JKXZRQVIg/exec",
-  orderApiUrl:   "https://script.google.com/macros/s/AKfycbwbVRvDgQuqlBrMYX9_bdFMuazqIa5fHwKEnCjfMamdiYbAcy85xxFJOMvhZBl9ZeTomQ/exec",
+  backendApiUrl: "https://script.google.com/macros/s/AKfycbzIiqfvFlsEbg0BvJKC6vsYJLKB4kMfc0xwX2BiqN0yYyv9eZBMLHRZlpcAAJOiyP9X8Q/exec",
+  orderApiUrl:   "https://script.google.com/macros/s/AKfycbwH7uh0C-w_F07AMtSuH9kaDG42NQOgsqDjvH6fz1RAFdQZNIU5Zkv2stkQweboOsICsA/exec",
 
   // ─── 6. Admin ──────────────────────────────────────────────────
   adminPassword: "duean2026",
