@@ -491,14 +491,34 @@ function applyShopConfig(){
 }
 
 function buildSocial(){
-  // Official brand logos
+  // Official brand SVG logos (ຕົ້ນສະບັບ)
   const icons={
-    facebook:`<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/240px-Facebook_Logo_%282019%29.png" width="28" height="28" style="object-fit:contain">`,
-    whatsapp:`<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png" width="28" height="28" style="object-fit:contain">`,
+    // Facebook logo ສີຟ້າທາງການ
+    facebook:`<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 36 36">
+      <path fill="#1877F2" d="M36 18C36 8.059 27.941 0 18 0S0 8.059 0 18c0 8.985 6.582 16.436 15.188 17.784V23.203h-4.57V18h4.57v-3.963c0-4.508 2.686-6.996 6.793-6.996 1.967 0 4.027.352 4.027.352v4.43h-2.269c-2.235 0-2.93 1.386-2.93 2.808V18h4.988l-.797 5.203h-4.191v12.581C29.418 34.436 36 26.985 36 18z"/>
+      <path fill="#fff" d="M25 23.203L25.797 18H20.81v-3.369c0-1.423.695-2.808 2.93-2.808h2.269V7.393S23.948 7.04 21.981 7.04c-4.107 0-6.793 2.488-6.793 6.996V18h-4.57v5.203h4.57v12.581a18.19 18.19 0 0 0 5.624 0V23.203H25z"/>
+    </svg>`,
+    // WhatsApp logo ສີຂຽວທາງການ
+    whatsapp:`<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 175.216 175.552">
+      <defs><linearGradient id="wg" x1="85.915%" x2="14.153%" y1="14.089%" y2="85.836%">
+        <stop offset="0" stop-color="#57d163"/><stop offset="1" stop-color="#23b33a"/>
+      </linearGradient></defs>
+      <path fill="url(#wg)" d="M87.608 0C39.638 0 .09 39.557.09 87.535c0 15.363 4.04 29.768 11.106 42.22L0 175.552l46.837-10.998A87.38 87.38 0 0 0 87.608 175.07c47.97 0 87.518-39.557 87.518-87.535C175.126 39.557 135.578 0 87.608 0z"/>
+      <path fill="#fff" d="M127.707 111.101c-1.787 4.99-8.876 9.132-14.395 10.336-3.834.813-8.84.713-26.378-5.534-22.155-8.04-36.444-30.496-37.546-31.924-1.054-1.428-8.876-11.808-8.876-22.524 0-10.716 5.618-15.962 7.61-18.135 1.987-2.173 4.33-2.716 5.78-2.716 1.454 0 2.91.026 4.182.085 1.344.063 3.148-.509 4.93 3.765l6.724 17.026c.664 1.682.332 3.557-.665 5.073l-3.02 4.367c-.997 1.437-.83 2.987.166 4.285 3.684 5.166 9.876 12.37 17.023 16.736 7.145 4.366 12.93 5.718 14.907 6.355 1.978.636 3.147.53 4.327-.847l5.285-6.358c1.254-1.59 2.51-1.333 4.24-.694l17.36 8.175c1.73.64 2.883 1.07 3.306 1.773.428.7.428 4.27-1.36 9.257z"/>
+    </svg>`,
   };
   const iconsSmall={
-    facebook:`<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/240px-Facebook_Logo_%282019%29.png" width="16" height="16" style="object-fit:contain">`,
-    whatsapp:`<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/240px-WhatsApp.svg.png" width="16" height="16" style="object-fit:contain">`,
+    facebook:`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 36 36">
+      <path fill="#1877F2" d="M36 18C36 8.059 27.941 0 18 0S0 8.059 0 18c0 8.985 6.582 16.436 15.188 17.784V23.203h-4.57V18h4.57v-3.963c0-4.508 2.686-6.996 6.793-6.996 1.967 0 4.027.352 4.027.352v4.43h-2.269c-2.235 0-2.93 1.386-2.93 2.808V18h4.988l-.797 5.203h-4.191v12.581C29.418 34.436 36 26.985 36 18z"/>
+      <path fill="#fff" d="M25 23.203L25.797 18H20.81v-3.369c0-1.423.695-2.808 2.93-2.808h2.269V7.393S23.948 7.04 21.981 7.04c-4.107 0-6.793 2.488-6.793 6.996V18h-4.57v5.203h4.57v12.581a18.19 18.19 0 0 0 5.624 0V23.203H25z"/>
+    </svg>`,
+    whatsapp:`<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 175.216 175.552">
+      <defs><linearGradient id="wg2" x1="85.915%" x2="14.153%" y1="14.089%" y2="85.836%">
+        <stop offset="0" stop-color="#57d163"/><stop offset="1" stop-color="#23b33a"/>
+      </linearGradient></defs>
+      <path fill="url(#wg2)" d="M87.608 0C39.638 0 .09 39.557.09 87.535c0 15.363 4.04 29.768 11.106 42.22L0 175.552l46.837-10.998A87.38 87.38 0 0 0 87.608 175.07c47.97 0 87.518-39.557 87.518-87.535C175.126 39.557 135.578 0 87.608 0z"/>
+      <path fill="#fff" d="M127.707 111.101c-1.787 4.99-8.876 9.132-14.395 10.336-3.834.813-8.84.713-26.378-5.534-22.155-8.04-36.444-30.496-37.546-31.924-1.054-1.428-8.876-11.808-8.876-22.524 0-10.716 5.618-15.962 7.61-18.135 1.987-2.173 4.33-2.716 5.78-2.716 1.454 0 2.91.026 4.182.085 1.344.063 3.148-.509 4.93 3.765l6.724 17.026c.664 1.682.332 3.557-.665 5.073l-3.02 4.367c-.997 1.437-.83 2.987.166 4.285 3.684 5.166 9.876 12.37 17.023 16.736 7.145 4.366 12.93 5.718 14.907 6.355 1.978.636 3.147.53 4.327-.847l5.285-6.358c1.254-1.59 2.51-1.333 4.24-.694l17.36 8.175c1.73.64 2.883 1.07 3.306 1.773.428.7.428 4.27-1.36 9.257z"/>
+    </svg>`,
   };
   const bgColors={facebook:"#1877f2",whatsapp:"#25d366"};
   const labels={facebook:"Facebook",whatsapp:"WhatsApp"};
@@ -524,10 +544,9 @@ function buildSocial(){
       onmouseenter="this.style.transform='scale(1.02)'" onmouseleave="this.style.transform=''"
     >
       <div style="width:56px;height:56px;border-radius:16px;
-                  background:${k==='facebook'?'#fff':bg};
+                  background:#fff;
                   display:flex;align-items:center;justify-content:center;
-                  flex-shrink:0;box-shadow:0 4px 12px ${bg}30;
-                  border:${k==='facebook'?'2px solid #1877f220':'none'};padding:4px">
+                  flex-shrink:0;box-shadow:0 4px 12px ${bg}30;padding:4px">
         ${icons[k]||"🔗"}
       </div>
       <div style="flex:1">
