@@ -531,9 +531,10 @@ function buildSocial(){
     const lbl=labels[k]||k;
     const sub=item.name||subLabels[k]||"";
     // Header buttons
-    h+=`<a href="${item.url}" target="_blank" class="social-btn" style="background:${bg};padding:6px 14px;gap:6px">
+    h+=`<a href="${item.url}" target="_blank" class="social-btn"
+      style="background:#fff;color:${bg};border:2px solid ${bg};padding:6px 14px;gap:6px;border-radius:20px;display:inline-flex;align-items:center">
       ${iconsSmall[k]||"🔗"}
-      <span style="font-size:12px;font-weight:bold">${lbl}</span>
+      <span style="font-size:12px;font-weight:bold;color:${bg}">${lbl}</span>
     </a>`;
     // Contact tab — card style ໃຫ່ຍ ສວຍ
     ch+=`<a href="${item.url}" target="_blank"
