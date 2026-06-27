@@ -39,7 +39,7 @@ const SHOP_CONFIG = {
 
   // ─── 5. API URLs (ໃສ່ຫຼັງ Deploy Google Apps Script) ──────────
   backendApiUrl: "https://script.google.com/macros/s/AKfycbyh55Wvrq6NpPO7pUMv6TcOvugH49td0gTzBIN3tHvYApQiuVWdH5v7IxWw1JKXZRQVIg/exec",
-  orderApiUrl:   "https://script.google.com/macros/s/AKfycbyF6oKLKj7WBiEcrqQI_cNN0y35KKLZj6aXECpTItBVzLUUwy1QEUldRnyj7Wngae2ZMA/exec",
+  orderApiUrl:   "https://script.google.com/macros/s/AKfycbwbVRvDgQuqlBrMYX9_bdFMuazqIa5fHwKEnCjfMamdiYbAcy85xxFJOMvhZBl9ZeTomQ/exec",
 
   // ─── 6. Admin ──────────────────────────────────────────────────
   adminPassword: "duean2026",
