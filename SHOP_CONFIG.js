@@ -29,10 +29,10 @@ const SHOP_CONFIG = {
   },
 
   // ─── 3. ສີໂທນ ─────────────────────────────────────────────────
-  primaryColor:    "#7C3AED",
-  primaryColorRgb: "124,58,237",
-  secondaryColor:  "#A78BFA",
-  headerBgColor:   "#7C3AED",
+  primaryColor:    "#C2185B",
+  primaryColorRgb: "194,24,91",
+  secondaryColor:  "#F48FB1",
+  headerBgColor:   "#C2185B",
 
   // ─── 4. QR ການຊຳລະ ────────────────────────────────────────────
   qrPaymentUrl: "https://drive.google.com/thumbnail?id=13wVnnJWEI7SXH5pz9o7fIReUowYEzp2v&sz=w600",
